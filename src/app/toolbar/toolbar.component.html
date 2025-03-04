@@ -2,13 +2,13 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <div class="sidebar" [ngClass]="{ 'sidebar-collapsed': isSidebarCollapsed }">
   <div class="sidebar-header">
-    <a href="#" class="sidebar-logo">{{
-      isSidebarCollapsed ? 'SSPA' : 'SSPA Demo'
-    }}</a>
+    <div routerLink="/" class="sidebar-logo">
+      {{ isSidebarCollapsed ? 'SSPA' : 'SSPA Demo' }}
+    </div>
   </div>
   <div class="sidebar-menu">
     <ul>
-      <ng-container *ngFor="let item of menuItems">
+      @for (item of menuItems; track item.label) {
         <li class="sidebar-menu-item">
           <div
             class="sidebar-item"
@@ -17,24 +17,17 @@
               'menu-item-active': item.isOpen
             }"
             (click)="toggleMenuItem(item)"
+            [ngClass] ="{'disabled-link':!item.isUrl,'cursor-pointer':item.isUrl}" 
+            [routerLink]="item.isUrl ? [item.url] : []"
           >
-            <img [src]="item.icon | safe:'url'" alt="nav icon">
-            <!-- <i [class]="item.icon"></i> -->
+            <img [src]="item.icon | safe:'url'" alt="nav icon" class="sidebar-item-icon" />
             <span class="sidebar-item-text">{{ item.label }}</span>
 
-      
-            
             @if (item.children && !isSidebarCollapsed && !item.isOpen) {
               <img [src]="chevron_down | safe:'url'" alt="chevron_down" class="sidebar-item-arrow" />
             } @else if (item.isOpen) {
               <img [src]="chevron_up | safe:'url'" alt="chevron_up" class="sidebar-item-arrow" />
             }
-
-            <!-- <i
-              *ngIf="item.children && !isSidebarCollapsed"
-              class="fas fa-chevron-down sidebar-item-arrow"
-              [ngClass]="{ rotated: item.isOpen }"
-            ></i> -->
           </div>
 
           <ul
@@ -42,15 +35,14 @@
             class="sidebar-submenu"
           >
             <li *ngFor="let child of item.children">
-              <a href="#" class="sidebar-item sidebar-subitem">
-                <!-- <i [class]="child.icon"></i> -->
+              <div class="sidebar-item sidebar-subitem" [routerLink]="child.isUrl ? [child.url] : []">
                 <img [src]="child.icon | safe:'url'" alt="nav icon">
                 <span class="sidebar-item-text">{{ child.label }}</span>
-              </a>
+              </div>
             </li>
           </ul>
         </li>
-      </ng-container>
+      }
     </ul>
   </div>
 </div>

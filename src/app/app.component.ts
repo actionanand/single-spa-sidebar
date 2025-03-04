@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
+
+import { getData, updateSidebarState } from '@actionanand/utility';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
@@ -15,12 +17,20 @@ import { SafePipe } from './shared/pipes/safe.pipe';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   isSidebarCollapsed = false;
   arrow_forward = arrow_forward;
   arrow_back = arrow_back;
 
   onSidebarToggle() {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    updateSidebarState(this.isSidebarCollapsed); // passing the sidebar state to the utility function
+  }
+
+  ngOnInit(): void {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    getData('/test-url').then((data: any) => {
+      console.log('angular-sidebar: ', data);
+    });
   }
 }

@@ -26,6 +26,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
+  cursor: pointer;
 }
 
 .sidebar-menu {
@@ -76,6 +77,11 @@
   &-text {
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
+  }
+
+  &-icon {
+    width: 24px;
+    height: 24px;
   }
 
   &.has-children {

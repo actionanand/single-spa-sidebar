@@ -1,4 +1,4 @@
-<div class="app-container">
+<!-- <div class="app-container">
   <div class="position-relative">
     <app-toolbar
       [isSidebarCollapsed]="isSidebarCollapsed"
@@ -17,8 +17,18 @@
       }
     </button>
   </div>
-
   <main class="content" [ngClass]="{ 'content-expanded': isSidebarCollapsed }">
     <div class="content-inner">Content goes here</div>
   </main>
-</div>
+</div> -->
+
+
+<app-toolbar [isSidebarCollapsed]="isSidebarCollapsed" (sidebarToggle)="onSidebarToggle()">
+</app-toolbar>
+<button class="sidebar-toggle-btn" [ngClass]="{ 'sidebar-collapsed': isSidebarCollapsed }" (click)="onSidebarToggle()">
+  @if (isSidebarCollapsed) {
+  <img [src]="arrow_forward | safe:'url'" alt="arrow forward">
+  } @else {
+  <img [src]="arrow_back | safe:'url'" alt="arrow back">
+  }
+</button>
