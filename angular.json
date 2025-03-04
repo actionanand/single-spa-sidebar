@@ -28,9 +28,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": [],
             "main": "src/main.single-spa.ts",
             "customWebpackConfig": {
@@ -38,7 +36,7 @@
               "libraryName": "single-spa-sidebar",
               "libraryTarget": "umd"
             },
-            "deployUrl": "http://localhost:20251/"
+            "deployUrl": "https://raw.githubusercontent.com/actionanand/single-spa-sidebar/gh-pages/assets/"
           },
           "configurations": {
             "production": {
@@ -98,9 +96,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
