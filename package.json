@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "build:gh": "ng build single-spa-sidebar --configuration production --output-path dist",
+    "build:gh": "ng build single-spa-sidebar --configuration production --output-path dist/single-spa-sidebar/browser",
     "copy-error-page": "cp dist/single-spa-sidebar/browser/index.html dist/single-spa-sidebar/browser/404.html",
     "precommit": "run-s format:fix lint",
     "format:fix": "pretty-quick --staged",
