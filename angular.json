@@ -28,7 +28,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": [],
             "main": "src/main.single-spa.ts",
             "customWebpackConfig": {
@@ -36,7 +38,7 @@
               "libraryName": "single-spa-sidebar",
               "libraryTarget": "umd"
             },
-            "deployUrl": "http://localhost:20242/"
+            "deployUrl": "http://localhost:20251/"
           },
           "configurations": {
             "production": {
@@ -96,7 +98,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         },
